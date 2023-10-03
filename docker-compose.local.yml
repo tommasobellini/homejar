@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+  application:
+    environment:
+      - MONGODB_URL=mongodb+srv://root:MKAKWPQDVvemdnPA@cluster0.qkvxyg5.mongodb.net/?retryWrites=true&w=majority
+      - DB_NAME=home_jar
+    ports:
+      - "8000:5000"
+    volumes:
+      - .:/home_jar_api
+      - ./secrets:/secrets
+      - ./settings:/settings
+
+configs:
+  home_jar_api_service_secrets:
+    file: ./secrets/secrets.json

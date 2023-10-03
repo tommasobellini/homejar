@@ -1,0 +1,16 @@
+version: '3.4'
+services:
+  application:
+    build:
+      context: ./
+      dockerfile: app/Dockerfile
+      args:
+        mock_server_git_branch: dev
+    hostname: home_jar_api.web.service
+    networks:
+      - backend
+networks:
+  backend:
+configs:
+  home_jar_api_service_secrets:
+    external: true
